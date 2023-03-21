@@ -10,12 +10,11 @@ body.appendChild(button);
 /* Send Message */
 
 button.addEventListener("click", async function () {
-  const toMail = "";
   // Fetch Patient by ID
   const patientInfo = await fetch("http://localhost:4000/api/patients/353")
     .then((response) => response.json())
     .then((res) => res.data.patient);
-  console.log("Phone number for Patients:353 => ", patientInfo.phone);
+  // console.log("Phone number for Patients:353 => ", patientInfo.phone);
   // toMail = res.data.patient.phone;
 
   // Create a form dynamically
