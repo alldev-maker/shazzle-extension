@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "React Chrome Extension",
+  "name": "Shazzle Extension",
   "version": "0.1",
   "description": "Boilerplate manifest for React based Chrome Extension using Google's Manifest v3",
   "background": {
@@ -28,7 +28,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["http://localhost:3000/*"],
+      "matches": ["https://lrc12095.kipuworks.com/*"],
       "css": ["style.css"],
       "js": ["content-script.js"]
     }

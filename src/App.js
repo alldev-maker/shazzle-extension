@@ -11,8 +11,13 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>SMS & Email forms with Twilio functions and React</p>
       </header>
-      <main>
-        <SMSForm />
+      <div className="no_print"></div>
+
+      <main className="patient_header">
+        <div className="no_print wrap right mleft10px">First Div</div>
+        <div className="wrap">Second Div</div>
+
+        {/* <SMSForm /> */}
         <br />
         {/* <ContactForm /> */}
       </main>

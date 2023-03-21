@@ -21,7 +21,7 @@ const ContactForm = () => {
     event.preventDefault();
     setSubmit(true);
 
-    fetch("/api/sendEmail", {
+    fetch("http://localhost:4000/api/send-email", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
