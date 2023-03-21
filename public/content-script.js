@@ -4,12 +4,20 @@ var button = document.createElement("button");
 button.innerHTML = "Send SMS";
 button.classList.add("btn-send");
 
-var body = document.getElementsByTagName("body")[0];
+var body = document.getElementsByClassName("no_print wrap right mleft10px")[0];
 body.appendChild(button);
 
 /* Send Message */
 
-button.addEventListener("click", function () {
+button.addEventListener("click", async function () {
+  const toMail = "";
+  // Fetch Patient by ID
+  const patientInfo = await fetch("http://localhost:4000/api/patients/353")
+    .then((response) => response.json())
+    .then((res) => res.data.patient);
+  console.log("Phone number for Patients:353 => ", patientInfo.phone);
+  // toMail = res.data.patient.phone;
+
   // Create a form dynamically
   var form = document.createElement("form");
   form.classList.add("sms-form");
@@ -23,8 +31,9 @@ button.addEventListener("click", function () {
   var phone = document.createElement("input");
   phone.setAttribute("type", "tel");
   phone.setAttribute("name", "to");
-  phone.setAttribute("id", "to");
+  phone.setAttribute("id", "phone");
   phone.setAttribute("placeholder", "Phone Number");
+  phone.setAttribute("value", patientInfo.phone);
 
   // Create an label element for Message
   var labelMessage = document.createElement("label");
@@ -64,7 +73,7 @@ button.addEventListener("click", function () {
     event.preventDefault();
 
     const message = {
-      to: document.getElementById("to").value,
+      to: document.getElementById("phone").value,
       body: document.getElementById("message").value,
     };
 
