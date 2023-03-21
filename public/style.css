@@ -1,0 +1,51 @@
+.btn-send {
+  position: absolute;
+  top: 60px;
+  left: 23px;
+  padding: 8px 16px;
+  display: inline-flex;
+  color: rgb(26, 115, 232);
+  background-color: antiquewhite;
+  border: 1px solid gainsboro;
+  border-radius: 4px;
+  cursor: pointer !important;
+  font-weight: bold;
+  z-index: 10;
+}
+.btn-send:hover {
+  background: lightsalmon;
+}
+
+.sms-form {
+  position: absolute;
+  top: 250px;
+  left: 50%;
+  padding: 40px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  background-color: antiquewhite;
+  width: 350px;
+  height: 400px;
+  transform: translateX(-50%);
+  text-align: left;
+}
+.sms-form label {
+  display: block;
+  color: aqua;
+}
+.sms-form input,
+.sms-form textarea {
+  font-size: 1em;
+  width: 100%;
+  box-sizing: border-box;
+}
+.sms-form div {
+  margin-bottom: 0.5em;
+}
+.sms-form button {
+  font-size: 1em;
+  width: 100%;
+}
+.sms-form.error {
+  outline: 2px solid #f00;
+}
