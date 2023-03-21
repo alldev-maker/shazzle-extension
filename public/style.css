@@ -10,7 +10,7 @@
   border-radius: 4px;
   cursor: pointer !important;
   font-weight: bold;
-  z-index: 10;
+  z-index: 100;
 }
 .btn-send:hover {
   background: lightsalmon;
