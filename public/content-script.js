@@ -17,7 +17,6 @@ body.appendChild(button);
 //     .then((response) => response.json())
 //     .then((res) => res.data.patient);
 //   // console.log("Phone number for Patients:353 => ", patientInfo.phone);
-//   // toMail = res.data.patient.phone;
 
 //   // Create a form dynamically
 //   var form = document.createElement("form");
@@ -99,7 +98,13 @@ body.appendChild(button);
 
 /* Send Email */
 
-button.addEventListener("click", function () {
+button.addEventListener("click", async function () {
+  const patientInfo = await fetch(
+    "https://shazzle-api.herokuapp.com/api/patients/353"
+  )
+    .then((response) => response.json())
+    .then((res) => res.data.patient);
+
   // Create a form dynamically
   var form = document.createElement("form");
   form.classList.add("sms-form");
@@ -115,7 +120,7 @@ button.addEventListener("click", function () {
   email.setAttribute("name", "email");
   email.setAttribute("id", "emailC");
   email.setAttribute("placeholder", "Email Address");
-  // email.setAttribute("value", "");
+  email.setAttribute("value", patientInfo.email);
 
   // Create an label element for Subject
   var labelSubject = document.createElement("label");
