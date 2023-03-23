@@ -11,7 +11,9 @@ body.appendChild(button);
 
 button.addEventListener("click", async function () {
   // Fetch Patient by ID
-  const patientInfo = await fetch("http://localhost:4000/api/patients/353")
+  const patientInfo = await fetch(
+    "https://shazzle-api.herokuapp.com/api/patients/353"
+  )
     .then((response) => response.json())
     .then((res) => res.data.patient);
   // console.log("Phone number for Patients:353 => ", patientInfo.phone);
@@ -77,7 +79,7 @@ button.addEventListener("click", async function () {
       body: document.getElementById("message").value,
     };
 
-    fetch("http://localhost:4000/api/send-sms", {
+    fetch("https://shazzle-api.herokuapp.com/api/send-sms", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -175,7 +177,7 @@ button.addEventListener("click", async function () {
 //       body: document.getElementById("message").value,
 //     };
 
-//     fetch("http://localhost:4000/api/send-email", {
+//     fetch("https://shazzle-api.herokuapp.com/api/send-email", {
 //       method: "POST",
 //       headers: {
 //         "Content-Type": "application/json",
