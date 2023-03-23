@@ -164,7 +164,7 @@ button.addEventListener("click", async function () {
   form.appendChild(subject);
 
   // Append the message to the form
-  form.appendChild(labelMessage);
+  // form.appendChild(labelMessage);
   form.appendChild(message);
   // Insert a line break
   form.appendChild(linebreak);
