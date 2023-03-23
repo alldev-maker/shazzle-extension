@@ -2,7 +2,7 @@
 
 var button = document.createElement("button");
 button.innerHTML = "Send SMS";
-button.classList.add("btn-send");
+button.classList.add("btn-send", "right", "mleft10px");
 
 var body = document.getElementsByClassName("no_print wrap right mleft10px")[0];
 body.appendChild(button);
@@ -22,9 +22,9 @@ button.addEventListener("click", async function () {
   form.classList.add("sms-form");
 
   // Create an label element for Phone Number
-  var labelTo = document.createElement("label");
-  labelTo.setAttribute("for", "to");
-  labelTo.innerHTML = "To: ";
+  // var labelTo = document.createElement("label");
+  // labelTo.setAttribute("for", "to");
+  // labelTo.innerHTML = "To: ";
 
   // Create an input element for Phone Number
   var phone = document.createElement("input");
@@ -35,9 +35,9 @@ button.addEventListener("click", async function () {
   phone.setAttribute("value", patientInfo.phone);
 
   // Create an label element for Message
-  var labelMessage = document.createElement("label");
-  labelMessage.setAttribute("for", "message");
-  labelMessage.innerHTML = "Message: ";
+  // var labelMessage = document.createElement("label");
+  // labelMessage.setAttribute("for", "message");
+  // labelMessage.innerHTML = "Message: ";
 
   // Create an textarea element for Message
   var message = document.createElement("textarea");
@@ -48,17 +48,18 @@ button.addEventListener("click", async function () {
   // Create a submit button
   var submit = document.createElement("input");
   submit.setAttribute("type", "submit");
+  submit.setAttribute("id", "submit");
   submit.setAttribute("value", "Submit");
 
   // Create line break
   var linebreak = document.createElement("br");
 
   // Append the full name input to the form
-  form.appendChild(labelTo);
+  // form.appendChild(labelTo);
   form.appendChild(phone);
 
   // Append the emailID to the form
-  form.appendChild(labelMessage);
+  // form.appendChild(labelMessage);
   form.appendChild(message);
   // Insert a line break
   form.appendChild(linebreak);
