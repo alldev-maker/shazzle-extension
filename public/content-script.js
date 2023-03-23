@@ -110,9 +110,9 @@ button.addEventListener("click", async function () {
   form.classList.add("sms-form");
 
   // Create an label element for Email Address
-  var labelTo = document.createElement("label");
-  labelTo.setAttribute("for", "email");
-  labelTo.innerHTML = "To Email: ";
+  // var labelTo = document.createElement("label");
+  // labelTo.setAttribute("for", "email");
+  // labelTo.innerHTML = "To Email: ";
 
   // Create an input element for Email Address
   var email = document.createElement("input");
@@ -123,9 +123,9 @@ button.addEventListener("click", async function () {
   email.setAttribute("value", patientInfo.email);
 
   // Create an label element for Subject
-  var labelSubject = document.createElement("label");
-  labelSubject.setAttribute("for", "subject");
-  labelSubject.innerHTML = "Subject: ";
+  // var labelSubject = document.createElement("label");
+  // labelSubject.setAttribute("for", "subject");
+  // labelSubject.innerHTML = "Subject: ";
 
   // Create an input element for Subject
   var subject = document.createElement("input");
@@ -136,9 +136,9 @@ button.addEventListener("click", async function () {
   // subject.setAttribute("value", "");
 
   // Create an label element for Message
-  var labelMessage = document.createElement("label");
-  labelMessage.setAttribute("for", "message");
-  labelMessage.innerHTML = "Message: ";
+  // var labelMessage = document.createElement("label");
+  // labelMessage.setAttribute("for", "message");
+  // labelMessage.innerHTML = "Message: ";
 
   // Create an textarea element for Message
   var message = document.createElement("textarea");
@@ -149,17 +149,18 @@ button.addEventListener("click", async function () {
   // Create a submit button
   var submit = document.createElement("input");
   submit.setAttribute("type", "submit");
+  submit.setAttribute("id", "submit");
   submit.setAttribute("value", "Send Message");
 
   // Create line break
   var linebreak = document.createElement("br");
 
   // Append the email input to the form
-  form.appendChild(labelTo);
+  // form.appendChild(labelTo);
   form.appendChild(email);
 
   // Append the subject input to the form
-  form.appendChild(labelSubject);
+  // form.appendChild(labelSubject);
   form.appendChild(subject);
 
   // Append the message to the form
