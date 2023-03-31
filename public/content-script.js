@@ -1,13 +1,17 @@
 /*global chrome*/
 
 var body = document.getElementsByClassName("no_print wrap right mleft10px")[0];
+var btnBox = document.createElement("div");
+var clearDiv = document.createElement("div");
+clearDiv.classList.add("clear");
+btnBox.classList.add("btn-box");
 
 /* Send Message */
 var smsButton = document.createElement("button");
 smsButton.innerHTML =
-  '<img src="../images/send-sms-icon.png" alt="send sms" />';
+  '<img src="https://res.cloudinary.com/dvsjouofy/image/upload/v1680274962/send-sms-icon_vmjlmr.png" alt="send sms" />';
 smsButton.classList.add("btn-send", "right", "mbottom06");
-body.appendChild(smsButton);
+btnBox.appendChild(smsButton);
 
 smsButton.addEventListener("click", async function () {
   // Fetch Patient by ID
@@ -93,10 +97,10 @@ smsButton.addEventListener("click", async function () {
 /* Send Email */
 var emailButton = document.createElement("button");
 emailButton.innerHTML =
-  '<img src="../images/send-mail-icon.png" alt="send mail" />';
+  '<img src="https://res.cloudinary.com/dvsjouofy/image/upload/v1680274961/send-mail-icon_dwicrp.png" alt="send mail" />';
 emailButton.classList.add("btn-send", "right", "mbottom06");
 
-body.appendChild(emailButton);
+btnBox.appendChild(emailButton);
 
 emailButton.addEventListener("click", async function () {
   // Fetch Patient by ID
@@ -187,3 +191,6 @@ emailButton.addEventListener("click", async function () {
     return false;
   };
 });
+
+body.appendChild(clearDiv);
+body.appendChild(btnBox);
