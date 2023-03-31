@@ -16,7 +16,7 @@ const SMSForm = () => {
 
     setSubmit(true);
 
-    fetch("http://localhost:4000/api/send-sms", {
+    fetch("https://shazzle-api.herokuapp.com/api/send-sms", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
