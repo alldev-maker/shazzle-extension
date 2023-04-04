@@ -28,7 +28,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://lrc12095.kipuworks.com/patients/*"],
+      "matches": ["http://localhost:3000/*"],
       "css": ["style.css"],
       "js": ["content-script.js"]
     }

@@ -20,7 +20,7 @@ window.onload = async (event) => {
   }
 
   patientInfo = await fetch(
-    "https://shazzle-api.herokuapp.com/api/patients/289"
+    "https://shazzle-api.herokuapp.com/api/patients/353"
   )
     .then((response) => response.json())
     .then((res) => res.data.patient);
