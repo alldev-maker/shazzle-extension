@@ -6,21 +6,44 @@ var clearDiv = document.createElement("div");
 clearDiv.classList.add("clear");
 btnBox.classList.add("btn-box");
 
-/* Send Message */
 var smsButton = document.createElement("button");
-smsButton.innerHTML =
-  '<img src="https://res.cloudinary.com/dvsjouofy/image/upload/v1680274962/send-sms-icon_vmjlmr.png" alt="send sms" />';
-smsButton.classList.add("btn-send", "right", "mbottom06");
-btnBox.appendChild(smsButton);
+var emailButton = document.createElement("button");
 
-smsButton.addEventListener("click", async function () {
-  // Fetch Patient by ID
-  const patientInfo = await fetch(
-    "https://shazzle-api.herokuapp.com/api/patients/353"
+// Fetch Patient by ID
+let patientInfo;
+window.onload = async (event) => {
+  patientInfo = await fetch(
+    "https://shazzle-api.herokuapp.com/api/patients/289"
   )
     .then((response) => response.json())
     .then((res) => res.data.patient);
 
+  // console.log("patientInfo -> ", patientInfo);
+  // console.log("patientInfo?.phone", patientInfo?.phone);
+  // console.log("patientInfo?.email", patientInfo?.email);
+
+  smsButton.innerHTML =
+    '<img src="https://res.cloudinary.com/dvsjouofy/image/upload/v1680274962/send-sms-icon_vmjlmr.png" alt="send sms" />';
+  smsButton.classList.add("btn-send", "right");
+  if (patientInfo?.phone === "") {
+    smsButton.disabled = true;
+    smsButton.classList.add("disabled");
+  }
+
+  emailButton.innerHTML =
+    '<img src="https://res.cloudinary.com/dvsjouofy/image/upload/v1680274961/send-mail-icon_dwicrp.png" alt="send mail" />';
+  emailButton.classList.add("btn-send", "right");
+  if (patientInfo?.email === "") {
+    emailButton.disabled = true;
+    emailButton.classList.add("disabled");
+  }
+
+  btnBox.appendChild(smsButton);
+  btnBox.appendChild(emailButton);
+};
+
+/* Send Message */
+smsButton.addEventListener("click", function () {
   // Create a form dynamically
   var form = document.createElement("form");
   form.classList.add("sms-form");
@@ -31,7 +54,7 @@ smsButton.addEventListener("click", async function () {
   phone.setAttribute("name", "to");
   phone.setAttribute("id", "phone");
   phone.setAttribute("placeholder", "Phone Number");
-  phone.setAttribute("value", patientInfo.phone);
+  phone.setAttribute("value", patientInfo?.phone);
 
   // Create an textarea element for Message
   var message = document.createElement("textarea");
@@ -95,21 +118,8 @@ smsButton.addEventListener("click", async function () {
 });
 
 /* Send Email */
-var emailButton = document.createElement("button");
-emailButton.innerHTML =
-  '<img src="https://res.cloudinary.com/dvsjouofy/image/upload/v1680274961/send-mail-icon_dwicrp.png" alt="send mail" />';
-emailButton.classList.add("btn-send", "right", "mbottom06");
 
-btnBox.appendChild(emailButton);
-
-emailButton.addEventListener("click", async function () {
-  // Fetch Patient by ID
-  const patientInfo = await fetch(
-    "https://shazzle-api.herokuapp.com/api/patients/353"
-  )
-    .then((response) => response.json())
-    .then((res) => res.data.patient);
-
+emailButton.addEventListener("click", function () {
   // Create a form dynamically
   var form = document.createElement("form");
   form.classList.add("sms-form");
@@ -118,9 +128,9 @@ emailButton.addEventListener("click", async function () {
   var email = document.createElement("input");
   email.setAttribute("type", "email");
   email.setAttribute("name", "email");
-  email.setAttribute("id", "emailC");
+  email.setAttribute("id", "mail");
   email.setAttribute("placeholder", "Email Address");
-  email.setAttribute("value", patientInfo.email);
+  email.setAttribute("value", patientInfo?.email);
 
   // Create an input element for Subject
   var subject = document.createElement("input");
@@ -162,7 +172,7 @@ emailButton.addEventListener("click", async function () {
     event.preventDefault();
 
     const message = {
-      email: document.getElementById("emailC").value,
+      email: document.getElementById("mail").value,
       subject: document.getElementById("subjectC").value,
       body: document.getElementById("message").value,
     };
