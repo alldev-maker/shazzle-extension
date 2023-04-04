@@ -1,17 +1,24 @@
 /*global chrome*/
 
-var body = document.getElementsByClassName("no_print wrap right mleft10px")[0];
-var btnBox = document.createElement("div");
-var clearDiv = document.createElement("div");
+const body = document.getElementsByClassName(
+  "no_print wrap right mleft10px"
+)[0];
+const btnBox = document.createElement("div");
+const clearDiv = document.createElement("div");
 clearDiv.classList.add("clear");
 btnBox.classList.add("btn-box");
 
-var smsButton = document.createElement("button");
-var emailButton = document.createElement("button");
+const smsButton = document.createElement("button");
+const emailButton = document.createElement("button");
 
 // Fetch Patient by ID
 let patientInfo;
 window.onload = async (event) => {
+  const pathname = window.location.pathname.match(/^\/patients\/(\d+)/);
+  if (pathname?.length == 2) {
+    console.log("Patient ID => ", pathname[1]);
+  }
+
   patientInfo = await fetch(
     "https://shazzle-api.herokuapp.com/api/patients/289"
   )
