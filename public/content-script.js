@@ -20,14 +20,16 @@ window.onload = async (event) => {
   }
 
   patientInfo = await fetch(
-    "https://shazzle-api.herokuapp.com/api/patients/350"
+    `https://shazzle-api.herokuapp.com/api/patients/${
+      pathname?.length === 2 ? pathname[1] : ""
+    }`
   )
     .then((response) => response.json())
-    .then((res) => res.data.patient);
+    .then((res) => res.data);
 
-  // console.log("patientInfo -> ", patientInfo);
-  // console.log("patientInfo?.phone", patientInfo?.phone);
-  // console.log("patientInfo?.email", patientInfo?.email);
+  console.log("patientInfo -> ", patientInfo);
+  console.log("patientInfo?.phone -> ", patientInfo?.phone);
+  console.log("patientInfo?.email -> ", patientInfo?.email);
 
   smsButton.innerHTML =
     '<img src="https://res.cloudinary.com/dvsjouofy/image/upload/v1680274962/send-sms-icon_vmjlmr.png" alt="send sms" />';
