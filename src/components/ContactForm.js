@@ -21,7 +21,7 @@ const ContactForm = () => {
     event.preventDefault();
     setSubmit(true);
 
-    fetch("http://localhost:4000/api/send-email", {
+    fetch("https://shazzle-api.herokuapp.com/api/send-email", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

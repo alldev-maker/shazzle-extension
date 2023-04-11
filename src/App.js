@@ -1,8 +1,8 @@
-import SMSForm from "./components/SMSForm";
+// import SMSForm from "./components/SMSForm";
 
 import logo from "./logo.svg";
 import "./App.css";
-import ContactForm from "./components/ContactForm";
+// import ContactForm from "./components/ContactForm";
 
 function App() {
   return (
@@ -14,7 +14,17 @@ function App() {
       <div className="no_print"></div>
 
       <main className="patient_header">
-        <div className="no_print wrap right mleft10px">First Div</div>
+        <div className="no_print wrap right mleft10px">
+          <div className="right mbottom06">
+            <button>button1</button>
+          </div>
+
+          <div className="clear"></div>
+
+          <div className="right mleft10px">
+            <button>button2</button>
+          </div>
+        </div>
         <div className="wrap">Second Div</div>
 
         {/* <SMSForm /> */}
